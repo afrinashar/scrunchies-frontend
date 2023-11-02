@@ -1,18 +1,18 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      <Navbar bg="danger" data-bs-theme="light">
+      <Navbar bg="primary" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href=""><h1 className='text-center text-light fst-italic'>Scrunchies</h1></Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <button type="button" class="btn btn-light">ADMIN</button>
+            
+          <Link to="./login"  >
+      <button type="button" class="btn btn-light">ADMIN</button>
+    </Link> 
           </Nav>
         </Container>
       </Navbar>
