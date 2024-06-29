@@ -1,0 +1,32 @@
+/* Card.css */
+
+.custom-card {
+    padding: 20px;
+    background-color: aliceblue;
+    border-color: rgb(219, 219, 219);
+    border-radius: 5px;
+    box-shadow: #b9b9b9 -2px 1px 9px 6px;
+  width: 300px;
+  }
+  .custom-card img{
+  width: 200px !important;
+  height: 250px;
+  }
+  .card-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-content {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 550px) {
+    .custom-card{
+      width: 30vw;
+    }
+    .image
+  }
+
+  
