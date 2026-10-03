@@ -10,7 +10,7 @@ const OrdersPage = () => {
   // Function to fetch orders from backend
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('https://scrunchies-backend-api.vercel.app/orders');
+      const response = await axios.get('https://scrunchies-backend-klbr.vercel.app/orders');
       console.log(response.data);
       setOrders(response.data);
     } catch (error) {

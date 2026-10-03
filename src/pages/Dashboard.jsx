@@ -5,7 +5,7 @@ import { ErrorState, LoadingState } from '../components/AsyncState'
 import { FeedbackForm } from '../components/FeedbackForm'
 import { SectionMark } from '../components/SectionMark'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://scrunchies-backend-api.vercel.app'
+const API_URL = import.meta.env.VITE_API_URL || 'https://scrunchies-backend-klbr.vercel.app'
 const categories = ['Scrunchies', 'Dress']
 const dressTypes = ['All', 'Blouse', 'Chudithar', 'Gown']
 const themes = [

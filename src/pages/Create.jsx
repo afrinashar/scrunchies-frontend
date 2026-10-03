@@ -20,7 +20,7 @@ export const Create = () => {
         formData.append('price', newUser.price);
         formData.append('description', newUser.description);
 
-        axios.post('https://scrunchies-backend-api.vercel.app/items', formData)
+        axios.post('https://scrunchies-backend-klbr.vercel.app/items', formData)
              .then(res => {
                 console.log(res);
              })

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { ErrorState, LoadingState } from './components/AsyncState'
 import { VisitingCard } from './components/VisitingCard'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://scrunchies-backend-api.vercel.app'
+const API_URL = import.meta.env.VITE_API_URL || 'https://scrunchies-backend-klbr.vercel.app'
 const orderStates = ['new', 'confirmed', 'shipped', 'complete', 'cancelled']
 const dressTypes = ['Blouse', 'Chudithar', 'Gown']
 const feedbackTitles = { app: 'App feedback', product: 'Product feedback', 'new-product': 'New product idea' }

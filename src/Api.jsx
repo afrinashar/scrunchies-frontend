@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_BASE_URL= "https://scrunchies-backend-api.vercel.app/";
+export const API_BASE_URL= "https://scrunchies-backend-klbr.vercel.app";
 
  
 const api = axios.create({

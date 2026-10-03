@@ -12,7 +12,7 @@ const SignIn = () => {
     e.preventDefault();
 
     console.log(email, password);
-    fetch("https://scrunchies-backend-api.vercel.app/login", {
+    fetch("https://scrunchies-backend-klbr.vercel.app/login", {
       method: "POST",
       crossDomain: true,
       headers: {
