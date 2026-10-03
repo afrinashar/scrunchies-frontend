@@ -7,7 +7,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/cart'); // Assuming your API endpoint is '/api/cart'
+        const response = await axios.get('https://scrunchies-backend-api.vercel.app/cart'); // Assuming your API endpoint is '/api/cart'
         setCart(response.data);
       } catch (error) {
         console.error('Error fetching cart:', error);

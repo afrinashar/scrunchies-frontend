@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { SectionMark } from './SectionMark'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_API_URL || 'https://scrunchies-backend-api.vercel.app'
 const feedbackOptions = [
   { id: 'app', label: 'App feedback', detail: 'Tell us about your tuk tails experience.' },
   { id: 'product', label: 'Product feedback', detail: 'Share a thought about something you bought.' },
