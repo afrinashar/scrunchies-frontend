@@ -14,7 +14,7 @@ const themes = [
   { id: 'sage', kicker: 'From cloth to one-of-a-kind', title: 'Patterned for', accent: 'your proportions.', description: 'Choose your silhouette and fabric. We’ll shape a blouse, chudithar or gown to move naturally with you.', announcement: 'Thoughtfully patterned · Carefully fitted · Hand finished' },
   { id: 'atelier', kicker: 'One precise cut at a time', title: 'A thoughtful fit.', accent: 'Lasting detail.', description: 'Explore small-batch scrunchies and tailored pieces made with patience, a steady hand and care for every seam.', announcement: 'A little thread, a lot of care · Welcome to our sewing room' },
 ]
-const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/'
+const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/tuk_tails'
 const adminWhatsapp = import.meta.env.VITE_ADMIN_WHATSAPP || '916383737258'
 const tailoringMessage = encodeURIComponent('Hi tuk tails, I would like to ask about a tailored blouse, chudithar or gown.')
 

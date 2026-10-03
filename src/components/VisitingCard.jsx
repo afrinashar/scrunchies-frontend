@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const DEFAULT_SERVICES = 'Hand-finished scrunchies · Tailored blouses, chudithars and gowns'
-const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/'
+const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/tuk_tails'
 const WHATSAPP_NUMBER = (import.meta.env.VITE_ADMIN_WHATSAPP || '916383737258').replace(/\D/g, '')
 const WEBSITE_URL = import.meta.env.VITE_SITE_URL || window.location.origin
 
@@ -29,7 +29,7 @@ function wrapText(context, text, maxWidth, maxLines) {
   return lines
 }
 
-function drawCard(canvas, name, services) {
+function drawCard(canvas, name, services, logoImage) {
   const context = canvas.getContext('2d')
   if (!context) return
 
@@ -62,15 +62,17 @@ function drawCard(canvas, name, services) {
   context.setLineDash([3, 8])
   context.strokeRect(105, 146, 145, 145)
   context.setLineDash([])
-  context.fillStyle = '#f5f1e7'
-  context.textAlign = 'center'
-  context.font = '500 66px "Playfair Display", Georgia, serif'
-  context.fillText('tt', 177, 236)
+  if (logoImage) {
+    const logoScale = Math.min(125 / logoImage.naturalWidth, 125 / logoImage.naturalHeight)
+    const logoWidth = logoImage.naturalWidth * logoScale
+    const logoHeight = logoImage.naturalHeight * logoScale
+    context.drawImage(logoImage, 177.5 - logoWidth / 2, 218.5 - logoHeight / 2, logoWidth, logoHeight)
+  }
 
   context.textAlign = 'left'
   context.fillStyle = '#f5f1e7'
   context.font = '600 36px "Playfair Display", Georgia, serif'
-  context.fillText('tuk tails', 83, 358)
+  context.fillText('Tuk Tails', 83, 358)
   context.fillStyle = '#c9d1a1'
   context.font = '600 12px "DM Sans", Arial, sans-serif'
   context.fillText('CUT  ·  FIT  ·  FINISH', 83, 389)
@@ -128,15 +130,22 @@ function drawCard(canvas, name, services) {
 
 export function VisitingCard() {
   const cardRef = useRef(null)
+  const [logoImage, setLogoImage] = useState(null)
   const [recipient, setRecipient] = useState(() => localStorage.getItem('tuk-tails-card-recipient') || '')
   const [services, setServices] = useState(() => localStorage.getItem('tuk-tails-card-services') || DEFAULT_SERVICES)
   const [downloadError, setDownloadError] = useState('')
 
   useEffect(() => {
+    const image = new Image()
+    image.onload = () => setLogoImage(image)
+    image.src = '/images/logo.png'
+  }, [])
+
+  useEffect(() => {
     localStorage.setItem('tuk-tails-card-recipient', recipient)
     localStorage.setItem('tuk-tails-card-services', services)
-    drawCard(cardRef.current, recipient, services)
-  }, [recipient, services])
+    drawCard(cardRef.current, recipient, services, logoImage)
+  }, [recipient, services, logoImage])
 
   function downloadCard() {
     const canvas = cardRef.current
@@ -152,7 +161,7 @@ export function VisitingCard() {
       link.download = `tuk-tails-card-${safeName}.png`
       link.href = objectUrl
       link.click()
-      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000)
+      URL.revokeObjectURL(objectUrl)
       setDownloadError('')
     }, 'image/png')
   }
